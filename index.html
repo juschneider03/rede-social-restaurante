@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Restaurante</title>
+    
+</head>
+<body>
+    <div id="menu">
+        <a href="pagina1.html"><img src="icone1.png" alt="Ícone 1"></a>
+        <a href="pagina2.html"><img src="icone2.png" alt="Ícone 2"></a>
+        <a href="pagina3.html"><img src="icone3.png" alt="Ícone 3"></a>
+    </div>
+
+  
+    <div class="main">
+        <div class="newPost">
+            <div class="infoUser">
+                <div class="imgUser"></div>
+                <strong>Juliana</strong>
+            </div>
+
+          <!--Formulario do novo post-->
+            <form action="" class="formPost" id="formPost">
+              <textarea name="textarea" placeholder="Vamos mudar o mundo?" id="textarea"></textarea>
+                <div class="iconsAndButton">
+                    <div class="icon">
+                        <button class="btnFileForm"><img src="./imagens/img.svg" alt="Adicionar uma imagem"></button>
+                        <button class="btnFileForm"><img src="./imagens/gif.svg" alt="Adicionar um gif"></button>
+                        <button class="btnFileForm"><img src="./imagens/video.svg" alt="Adicionar um video"></button>
+                    </div>
+                    <button type="submit" class="btnSubmitForm">Publicar</button>
+                </div>
+            </form>
+        </div>
+        
+        <ul class="posts" id="posts">
+            <li class="post">
+                <div class="infoUserPost">
+                    <div class="imgUserPost">
+                        <div class="nameAndHour">
+                            <strong>Juliana</strong>
+                            <p>21h</p>
+                        </div>
+                    </div>
+                </div>
+                <p>COMIDA FEDIDA</p>
+                <img src="https://img.jornalcruzeiro.com.br/img/2013/08/22/media/130547_COMIDA.jpg">
+                <div class="actionBtnPost">
+                    <button type="button" class="fileForm like"><img src="./imagens/heart.svg" alt="Curtir">Curtir</button>
+                    <button type="button" class="fileForm comment"><img src="./imagens/comment.svg" alt="Comentar">Comentar</button>
+                    <button type="button" class="fileForm share"><img src="./imagens/share.svg" alt="Compartilhar">Compartilhar</button>
+                </div>
+            </li>
+
+            <li class="post">
+                <div class="infoUserPost">
+                    <div class="imgUserPost">
+                        <div class="nameAndHour">
+                            <strong>Juliana</strong>
+                            <p>21h</p>
+                        </div>
+                    </div>
+                </div>
+                <p>SJNSOFNVSO SOVNONGVOSDN</p>
+                <div class="actionBtnPost">
+                    <button type="button" class="fileForm like"><img src="./imagens/heart.svg" alt="Curtir">Curtir</button>
+                    <button type="button" class="fileForm comment"><img src="./imagens/comment.svg" alt="Comentar">Comentar</button>
+                    <button type="button" class="fileForm share"><img src="./imagens/share.svg" alt="Compartilhar">Compartilhar</button>
+                </div>
+            </li>
+
+            <li class="post">
+                <div class="infoUserPost">
+                    <div class="imgUserPost">
+                        <div class="nameAndHour">
+                            <strong>Juliana</strong>
+                            <p>21h</p>
+                        </div>
+                    </div>
+                </div>
+                <p>SJNSOFNVSO SOVNONGVOSDN</p>
+                <div class="actionBtnPost">
+                    <button type="button" class="fileForm like"><img src="./imagens/heart.svg" alt="Curtir">Curtir</button>
+                    <button type="button" class="fileForm comment"><img src="./imagens/comment.svg" alt="Comentar">Comentar</button>
+                    <button type="button" class="fileForm share"><img src="./imagens/share.svg" alt="Compartilhar">Compartilhar</button>
+                </div>
+            </li>
+        </ul>
+    </div> 
+    <script type="module" src="/controller/FormPost.js"></script>
+</body>
+</html>
