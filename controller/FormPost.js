@@ -1,4 +1,4 @@
-export class FormPost {
+class FormPost {
     constructor(idForm, idTextarea, listPost) {
       this.form = document.getElementById(idForm);
       this.textarea = document.getElementById(idTextarea);
@@ -35,7 +35,7 @@ export class FormPost {
             <div class="imgUserPost"></div>
   
             <div class="nameAndHour">
-              <strong>Douglas Pujol</strong>
+              <strong>Juliana</strong>
               <p>${time}</p>
             </div>
           </div>
@@ -46,15 +46,15 @@ export class FormPost {
   
           <div class="actionBtnPost">
             <button type="button" class="filesPost like">
-              <img src="./assets/heart.svg" alt="Curtir">
+              <img src="./imagens/heart.svg" alt="Curtir">
               Curtir
             </button>
             <button type="button" class="filesPost comment">
-              <img src="./assets/comment.svg" alt="Comentar">
+              <img src="./imagens/comment.svg" alt="Comentar">
               Comentar
             </button>
             <button type="button" class="filesPost share">
-              <img src="./assets/share.svg" alt="Compartilhar">
+              <img src="./imagens/share.svg" alt="Compartilhar">
               Compartilhar
             </button>
           </div>
