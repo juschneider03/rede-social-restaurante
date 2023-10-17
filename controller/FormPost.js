@@ -25,7 +25,6 @@ class FormPost {
     addSubmit() {
       const handleSubmit = (event) => {
         event.preventDefault(); 
-        console.log("evento adicionado")
         if (this.formValidate(this.textarea.value)) {
           const newPost = document.createElement('li');
           newPost.classList.add('post');

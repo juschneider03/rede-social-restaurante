@@ -4,7 +4,7 @@ body{
     font-family: 'Intern', sans-serif;
     margin: 0;
     padding: 0;
-    color: #74C365;
+    color: #8A2BE2;
 }
 
 .page{
@@ -62,7 +62,7 @@ body{
 }
 
 .formLogin input:focus {
-    border: 1px solid #08fe10;
+    border: 1px solid #8A2BE2;
 }
 
 .formLogin label {
@@ -79,11 +79,11 @@ body{
 }
 
 .formLogin a:hover {
-    color: #08fe10;
+    color: #8A2BE2;
 }
 
 .btn {
-    background-color: #08fe10;
+    background-color: #8A2BE2;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -96,6 +96,6 @@ body{
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: #08fe10;
+    background-color: #6e24b3;
 
 }

@@ -41,7 +41,7 @@ div.newPost {
 
   display: flex;
   align-items: flex-start;
-  flex-direction: column-reverse;
+  flex-direction: column;
   margin: 50px 0;
   padding: 25px;
 
@@ -133,7 +133,7 @@ div.newPost form.formPost div.iconsAndButton button.btnSubmitForm {
 }
 
 div.newPost form.formPost div.iconsAndButton button.btnSubmitForm:hover {
-  background: #ce7202;
+  background: #621ba5;
 }
 
 ul.posts li.post {
@@ -143,6 +143,11 @@ ul.posts li.post {
   border-radius: 20px;
   padding: 25px;
   box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
+}
+
+ul.posts {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 ul.posts li.post div.infoUserPost {
