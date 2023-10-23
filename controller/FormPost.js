@@ -48,14 +48,6 @@ class FormPost {
               <img src="./imagens/heart.svg" alt="Curtir">
               Curtir
             </button>
-            <button type="button" class="filesPost comment">
-              <img src="./imagens/comment.svg" alt="Comentar">
-              Comentar
-            </button>
-            <button type="button" class="filesPost share">
-              <img src="./imagens/share.svg" alt="Compartilhar">
-              Compartilhar
-            </button>
           </div>
           `;
           this.listPost.appendChild(newPost);

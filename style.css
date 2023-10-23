@@ -214,21 +214,3 @@ ul.posts li.post div.actionBtnPost button.filesPost img {
 .like:hover {
   background: rgb(248, 75, 75);
 }
-
-.comment {
-  background: #ffc320;
-  border-radius: 6px;
-}
-
-.comment:hover {
-  background: rgb(245, 180, 0);
-}
-
-.share {
-  background: #23a0ff;
-  border-radius: 6px;
-}
-
-.share:hover {
-  background: rgb(8, 141, 241);
-}
