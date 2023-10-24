@@ -13,6 +13,21 @@
     -webkit-font-smoothing: antialiased !important
   }
 
+  .form_label {
+    background: #ca2d2d;
+    margin: 15px 100px;
+    padding: 15px;
+    border-radius: 0px;
+    resize: none;
+    border: 0;
+    height: 60px;
+    outline: none;
+  
+    font-weight: bold;
+    color: #000000;
+    border: 2px solid #fff;
+  }
+
 #menu {
     background-color: #8A2BE2;
     text-align: center;
@@ -51,7 +66,7 @@ div.main {
 
 div.newPost {
   width: 100%;
-  height: 300px;
+  height: 100%;
 
   display: flex;
   align-items: flex-start;
@@ -209,6 +224,12 @@ div.newPost {
     outline: none;
     width: 100%;
     transition: all 0.3s;
+    margin: 15px 100px;
+    resize: none;
+    height: 60px;
+  
+    font-weight: bold;
+    color: #000000;
 }
 .form_message,
 .form_message .message_input {

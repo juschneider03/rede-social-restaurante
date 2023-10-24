@@ -8,18 +8,17 @@
     </head>
     <body>
         <div class="page">
-            <form method="POST" class="formLogin">
+            <div class="formLogin">
                 <h1>Login</h1>
-                <p>Digite dados abaixo.</p>
-                <label for="email">E-mail</label>
-                <input id="email" type="email" placeholder="Digite seu email" autofocus="true"/>
-                <label for="password">Senha</label>
-                <input id="senha" type="password" placeholder="Digite sua senha" />
-                <a href="/">Esqueci minha senha</a>
-                <a class="btnMenu" href="index.html">
-                    <input type="submit" value="Acessar" class="btn" />
-                </a>
-            </form>
+                <p>Digite os dados abaixo.</p>
+                <form method="POST" action="verificar_login.php">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" placeholder="Digite seu email" autofocus="true"/>
+                    <label for="senha">Senha</label>
+                    <input id="senha" name="senha" type="password" placeholder="Digite sua senha" />
+                    <button type="submit" class="btn">Acessar</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>
