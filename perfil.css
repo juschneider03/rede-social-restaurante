@@ -13,9 +13,12 @@
     -webkit-font-smoothing: antialiased !important
   }
 
+  .form {
+    padding: 40px;
+  }
+
   .form_label {
-    background: #ca2d2d;
-    margin: 15px 100px;
+    margin: 15px 60px;
     padding: 15px;
     border-radius: 0px;
     resize: none;
@@ -100,8 +103,6 @@ div.newPost {
   padding-bottom: 10px;
 }
 
-/* SUBMIT */
-
 .btn {
     background-color: #8A2BE2;
     color: #fff;
@@ -120,6 +121,7 @@ div.newPost {
 }
 
 .submit { width:100%; float:left; }
+
 .submit_btn {
     float: left;
     display: block;
@@ -224,7 +226,7 @@ div.newPost {
     outline: none;
     width: 100%;
     transition: all 0.3s;
-    margin: 15px 100px;
+    margin: 15px 60px;
     resize: none;
     height: 60px;
   
