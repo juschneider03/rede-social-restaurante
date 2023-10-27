@@ -1,6 +1,6 @@
 <?php
     $hostname = "localhost";
-    $bancodedados = "bd_restaurante";
+    $bancodedados = "restaurantes";
     $usuario = "root";
     $senha = "";
 
@@ -9,7 +9,7 @@
     if ($conn->connect_error) {
         die("Conexão ao banco de dados falhou: " . $conn->connect_error);
     }
-
+   
     $nome = $_POST['nome'];
 
     $query = "SELECT * FROM tabela_usuarios WHERE nome LIKE '%$nome%'";

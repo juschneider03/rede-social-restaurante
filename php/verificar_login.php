@@ -1,6 +1,6 @@
 <?php
     $hostname = "localhost";
-    $bancodedados = "bd_restaurante";
+    $bancodedados = "restaurantes";
     $usuario = "root";
     $senha = "";
 
@@ -13,7 +13,7 @@
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     
-    $query = "SELECT * FROM tabela_login WHERE email = '$email' AND senha = '$senha'";
+    $query = "SELECT * FROM tabela_usuario WHERE email = '$email' AND senha = '$senha'";
     $result = $conn->query($query);
     
     if ($result->num_rows == 1) {
