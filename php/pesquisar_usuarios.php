@@ -1,15 +1,15 @@
 <?php
     
-    include("conexao.php")
+    include("conexao.php");
     
     $nome = $_POST['nome'];
 
-    $query = "SELECT * FROM tabela_usuarios WHERE nome LIKE '%$nome%'";
+    $query = "SELECT * FROM usuario WHERE nome LIKE '%$nome%'";
     $result = $conn->query($query);
 
     echo "<ul>";
     while ($row = $result->fetch_assoc()) {
-        echo "<li><a href='perfil.php?id=" . $row['id'] . "'>" . $row['nome'] . "</a></li>";
+        echo "<li><a href='perfil.php?id=" . $row['id_usuario'] . "'>" . $row['nome'] . "</a></li>";
     }
     echo "</ul>";
 

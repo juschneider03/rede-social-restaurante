@@ -1,11 +1,11 @@
 <?php
     
-    include("conexao.php")
+    include("conexao.php");
     
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     
-    $query = "SELECT * FROM tabela_usuario WHERE email = '$email' AND senha = '$senha'";
+    $query = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
     $result = $conn->query($query);
     
     if ($result->num_rows == 1) {
@@ -17,5 +17,3 @@
     
     $conn->close();
 ?>
-
-

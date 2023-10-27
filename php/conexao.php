@@ -4,8 +4,8 @@
     $usuario = "root";
     $senha = "";
 
-    $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
-    if ($mysqli->connect_errno) {
+    $conn = new mysqli($hostname, $usuario, $senha, $bancodedados);
+    if ($conn->connect_errno) {
         echo "falha ao conectar:(" . $mysqli->connect_errno . ")" . $mysqli->connect_errno;
     }
     else
