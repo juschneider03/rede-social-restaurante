@@ -1,15 +1,7 @@
 <?php
-    $hostname = "localhost";
-    $bancodedados = "restaurantes";
-    $usuario = "root";
-    $senha = "";
-
-    $conn = new mysqli($hostname, $usuario, $senha, $bancodedados);
-
-    if ($conn->connect_error) {
-        die("Conexão ao banco de dados falhou: " . $conn->connect_error);
-    }
-   
+    
+    include("conexao.php")
+    
     $nome = $_POST['nome'];
 
     $query = "SELECT * FROM tabela_usuarios WHERE nome LIKE '%$nome%'";
