@@ -4,11 +4,13 @@
     $usuario = "root";
     $senha = "";
 
-    $conn = new mysqli($host, $usuario, $senha, $banco);
+    $conn = new mysqli($hostname, $usuario, $senha, $bancodedados);
 
     if ($conn->connect_error) {
         die("Conexão ao banco de dados falhou: " . $conn->connect_error);
     }
+    else
+    echo "Conectado ao Banco de Dados;"
     
     $email = $_POST['email'];
     $senha = $_POST['senha'];
