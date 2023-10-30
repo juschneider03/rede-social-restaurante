@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTP-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro</title>
+        <link rel="stylesheet" href="Registro.css">
+    </head>
+
+    <body>
+        <div class="page">
+            <div class="formRegistro">
+                <h1>Registro</h1>
+                <p>Insira os dados de registro</p>
+                <form methodos="POST" action="Verificar_Registro.php">
+
+                    <div>
+                    <label for="nome"></label>
+                    <input id="nome" name="nome" type="nome" placeholder="Nome" autofocus="true" required/>
+                    </div>
+
+                    <div>
+                    <label for="email"></label>
+                    <input id="email" name="email" type="email" placeholder="E-mail" autofocus="true" required/>
+                    </div>
+
+                    <div>
+                    <label for="senha"></label>
+                    <input id="senha" name="senha" type="senha" placeholder="Senha" autofocus="true" required/>
+                    </div>
+
+                    <div>
+                    <label for="informacoes"></label>
+                    <input id="informacoes" name="informacoes" type="informacoes" placeholder="informacoes" autofocus="true" required/>
+                    </div>
+
+                    <div>
+                    <label for="nascimento"></label>
+                    <input id="nascimento" name="nascimento" type="nascimento" placeholder="Data de nascimento" autofocus="true" required/>
+                    </div>
+
+                    <div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                    </div>
+
+                    <div>
+                    <button type="reset" class="btn2">Cancelar</button>
+                    </div>
+
+                </form> 
+            </div>
+        </div>
+    </body>
+</html>

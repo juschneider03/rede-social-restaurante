@@ -22,12 +22,12 @@
                 <strong>Juliana</strong>
             </div>
 
-            <form action="" class="formPost" id="formPost">
+            <form action="Postagem.php" class="formPost" id="formPost">
               <textarea name="textarea" placeholder="O que você comeu hoje?" id="textarea"></textarea>
                 <div class="iconsAndButton">
                     <div class="icon">
-                        <button class="btnFileForm"><img src="./imagens/img.svg" alt="Adicionar uma imagem"></button>
-                        <button class="btnFileForm"><img src="./imagens/gif.svg" alt="Adicionar um gif"></button>
+                        <input style="display: none" type="file" accept="image/png" id="input-imagens" name="post_imagem"/>
+                        <button id="button-imagens" class="btnFileForm"><img src="./imagens/img.svg" alt="Adicionar uma imagem"></button>
                     </div>
                     <button type="submit" class="btnSubmitForm">Publicar</button>
                 </div>
@@ -37,5 +37,6 @@
         <ul class="posts" id="posts"></ul>
     </div> 
     <script src="./controller/FormPost.js"></script>
+    <script src="./controller/ControleBotoesPost.js"></script>
 </body>
 </html>

@@ -1,9 +1,12 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body{
     font-family: 'Intern', sans-serif;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     color: #8A2BE2;
 }
 
@@ -18,7 +21,7 @@ body{
     background-color: #bebfc5;
 }
 
-.formLogin{
+.formRegistro{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,32 +35,23 @@ body{
     width: 345px;
 }
 
-.div-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 
-.areaLogin img{
-    width: 420px;
-}
 
-.formLogin h1{
+.formRegistro h1{
     padding: 0;
     margin: 0;
     font-weight: 500;
     font-size: 2.3em;
 }
 
-.formLogin p{
+.formRegistro p{
     display: inline-block;
     font-size: 14px;
     color: #696969;
     margin-bottom: 25px;
 }
 
-.formLogin input{
+.formRegistro input{
     padding: 15px;
     font-size: 14px;
     border: 1px solid #8e8686;
@@ -68,16 +62,16 @@ body{
     outline: none;
 }
 
-.formLogin input:focus {
+.formRegistro input:focus {
     border: 1px solid #8A2BE2;
 }
 
-.formLogin label {
+.formRegistro label {
     font-size: 14px;
     font-weight: 600;
 }
 
-.formLogin a {
+.formRegistro a {
     display: inline-block;
     margin-bottom: 20px;
     font-size: 13px;
@@ -85,23 +79,50 @@ body{
     transition: all linear 160ms;
 }
 
-.formLogin a:hover {
+.formRegistro a:hover {
     color: #8A2BE2;
 }
 
 .btn {
     background-color: #8A2BE2;
     color: #fff;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 600;
-    border: none !important;
+    width: 100%;
+    height: 45px;
+    border: 2px;
     transition: all linear 160ms;
     cursor: pointer;
-    margin: 0 !important;
-    border-radius: 15px;
+    margin-bottom: 1pc;
+    border-radius: 40px;
+    
+
 }
 
 .btn:hover {
+    transform: scale(1.05);
+    background-color: #6e24b3;
+
+}
+
+
+.btn2 {
+    background-color: #8A2BE2;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 1pc;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+    border-radius: 40px;
+    
+
+}
+
+.btn2:hover {
     transform: scale(1.05);
     background-color: #6e24b3;
 
