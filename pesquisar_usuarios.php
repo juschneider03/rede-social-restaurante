@@ -14,4 +14,6 @@
     echo "</ul>";
 
     $conn->close();
+    
+    header("Location: {$_SERVER['HTTP_REFERER']}");
 ?>

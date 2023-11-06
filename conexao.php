@@ -1,8 +1,8 @@
 <?php
     $hostname = "localhost";
-    $bancodedados = "restaurantes";
+    $bancodedados = "restaurante";
     $usuario = "root";
-    $senha = "";
+    $senha = "root";
 
     $conn = new mysqli($hostname, $usuario, $senha, $bancodedados);
     if ($conn->connect_errno) {
