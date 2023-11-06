@@ -21,7 +21,7 @@ class FormPost {
     onSubmit(func) {
       this.form.addEventListener("submit", func);
     }
-  
+
     addSubmit() {
       const handleSubmit = (event) => {
         event.preventDefault(); 
@@ -34,7 +34,7 @@ class FormPost {
             <div class="imgUserPost"></div>
   
             <div class="nameAndHour">
-              <strong>Juliana</strong>
+              <strong>TESTE</strong>
               <p>${time}</p>
             </div>
           </div>

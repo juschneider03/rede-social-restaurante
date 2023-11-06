@@ -11,7 +11,7 @@
         $foto = null; // Caso nenhuma imagem seja enviada
     }
 
-    $stmt = $conn->prepare("INSERT INTO postagens (usuario, comentario, foto) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO postagens (usuario, comentario, foto) VALUES (?,$comentario, $foto)");
     $stmt->bind_param("iss", $usuario_id, $comentario, $foto);
 
     $stmt->close();

@@ -8,9 +8,9 @@
     $info  = $_POST['informacoes'];
     $data_nascimento = $_POST['nascimento'];
     
-    $query = "SELECT * FROM tabela_usuario WHERE nome = '$nome' AND email = '$email' AND
-    senha = '$senha' AND informacoes = '$info' AND nascimento = '$data_nascimento'";
-    $result = $conn->query($query);
+    $sql = "INSERT INTO usuario (nome, email, senha, informacoes, nascimento) VALUES ('$nome', '$email', '$senha', '$informacoes', '$nascimento')";
+
+    $result = $conn->query($sql);
     
     if ($result->num_rows == 1) {
         header("Location: index.html");
