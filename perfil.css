@@ -113,6 +113,30 @@ div.newPost {
     cursor: pointer;
     margin: 0 !important;
     border-radius:3px;
+    padding: 5px;
+}
+
+.editarPerfil {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btnAmizade {
+  background-color: #e2fa08;
+  color: #fff;
+  font-size: 14px;
+  border: none !important;
+  transition: all linear 160ms;
+  cursor: pointer;
+  margin: 0 !important;
+  border-radius:3px;
+  padding: 5px;
+}
+
+.btnAmizade:hover {
+  transform: scale(1.05);
+  background-color: #bac524;
 }
 
 .btn:hover {
@@ -245,15 +269,4 @@ div.newPost {
     margin-bottom: 15px;
     font-weight: bold;
     
-}
-
-button.btnSubmitForm {
-  background: #8A2BE2;
-  padding: 10px 50px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-
-  border: 0;
-  border-radius: 10px;
 }
