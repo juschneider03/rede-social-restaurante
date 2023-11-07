@@ -1,0 +1,44 @@
+CREATE DATABASE restaurante;
+USE restaurante;
+
+CREATE TABLE `amizades` (
+ `id_amizades` int(11) NOT NULL AUTO_INCREMENT,
+ `usuario_seguiu` int(11) NOT NULL,
+ `usuario_seguindo` int(11) NOT NULL,
+ PRIMARY KEY (`id_amizades`)
+);
+
+CREATE TABLE `usuario` (
+ `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+ `nome` varchar(250) NOT NULL,
+ `email` varchar(450) NOT NULL,
+ `senha` varchar(250) NOT NULL,
+ `data_nascimento` date NOT NULL,
+ `informacoes` varchar(500) NOT NULL,
+ PRIMARY KEY (`id_usuario`),
+ UNIQUE KEY `email` (`email`),
+ UNIQUE KEY `senha` (`senha`)
+);
+
+CREATE TABLE `postagens` (
+ `id_post` int(11) NOT NULL AUTO_INCREMENT,
+ `usuario` int(11) NOT NULL,
+ `comentario` varchar(500) NOT NULL,
+ `foto` blob NOT NULL,
+ PRIMARY KEY (`id_post`),
+ KEY `usuario` (`usuario`),
+ CONSTRAINT `postagens_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id_usuario`)
+) ;
+
+CREATE TABLE `curtidas` (
+ `id_curtidas` int(11) NOT NULL AUTO_INCREMENT,
+ `post` int(11) NOT NULL,
+ `usuario` int(11) NOT NULL,
+ PRIMARY KEY (`id_curtidas`),
+ KEY `curtidas_post_fk` (`post`),
+ KEY `curtidas_usuario_fk` (`usuario`),
+ CONSTRAINT `curtidas_post_fk` FOREIGN KEY (`post`) REFERENCES `postagens` (`id_post`),
+ CONSTRAINT `curtidas_usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id_usuario`)
+);
+
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES ('2', 'Professor Culinario', 'professor@gmail.com', 'professor123', '2000-04-04', 'Sou Professor e Gosto de comer, um churrasquinho então hmmmmmm');

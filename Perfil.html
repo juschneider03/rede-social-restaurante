@@ -1,3 +1,14 @@
+<?php
+session_start();
+$user = $_SESSION['user'];
+
+if (!$user) {
+    // Redirecione o usuário para a página de login se não estiver logado.
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
