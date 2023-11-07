@@ -93,12 +93,15 @@ body{
     background-color: #8A2BE2;
     color: #fff;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     border: none !important;
     transition: all linear 160ms;
     cursor: pointer;
-    margin: 0 !important;
-    border-radius: 15px;
+    margin: 0  !important;
+    border-radius: 13px;
+    width: 150px; 
+    height: 35px;
+    margin-bottom: 200px;
 }
 
 .btn:hover {
