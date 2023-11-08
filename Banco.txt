@@ -17,7 +17,11 @@ CREATE TABLE `amizades` (
  `id_amizades` int(11) NOT NULL AUTO_INCREMENT,
  `usuario_seguiu` int(11) NOT NULL,
  `usuario_seguindo` int(11) NOT NULL,
- PRIMARY KEY (`id_amizades`)
+ PRIMARY KEY (`id_amizades`),
+ UNIQUE KEY `usuario_seguiu` (`usuario_seguiu`),
+ UNIQUE KEY `usuario_seguindo` (`usuario_seguindo`),
+ CONSTRAINT `Fk_usu_seguindo` FOREIGN KEY (`usuario_seguindo`) REFERENCES `usuario` (`id_usuario`),
+ CONSTRAINT `Fk_usu_seguiu` FOREIGN KEY (`usuario_seguiu`) REFERENCES `usuario` (`id_usuario`)
 );
 
 CREATE TABLE `postagens` (
@@ -41,4 +45,5 @@ CREATE TABLE `curtidas` (
  CONSTRAINT `curtidas_usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id_usuario`)
 );
 
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES ('2', 'Professor Culinario', 'professor@gmail.com', 'professor123', '2000-04-04', 'Sou Professor e Gosto de comer, um churrasquinho então hmmmmmm');
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES ('', 'Professor Culinario', 'professor@gmail.com', 'professor123', '2000-04-04', 'Sou Professor e Gosto de comer, um churrasquinho então hmmmmmm');
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES (NULL, 'teste', 'teste@gmail.com', '123', '2000-01-01', 'testes testes');
