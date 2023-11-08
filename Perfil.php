@@ -59,7 +59,7 @@ $conn->close();
                 <strong><?php echo $nome; ?></strong>
             </div>
             <div class="editarPerfil">
-                <a class="btnEditar" href="editar-perfil.html">
+                <a class="btnEditar" href="editar_perfil.php">
                     <input type="button" value="Editar meu perfil" class="btn" />
                 </a>
             </div>

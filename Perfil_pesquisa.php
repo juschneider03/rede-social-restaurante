@@ -1,27 +1,27 @@
 <?php
     include("conexao.php");
     
-    if (isset($_SESSION['id_usuario'])) {
-        $id_usuario = $_SESSION['id_usuario'];
+    if (isset($_GET['id'])) {
+        $id_usuario = $_GET['id'];
     
         // Consulta para obter os dados do usuário
         $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id_usuario);
     
-    // Execute a consulta
-     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-             $row = $result->fetch_assoc();
-             $nome = $row["nome"];
-             $email = $row["email"];
-             $data_nascimento = $row["data_nascimento"];
-             $informacoes = $row["informacoes"];
-          } else {
-             echo "Nenhum usuário encontrado.";
-         }
-    }
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $nome = $row["nome"];
+                $email = $row["email"];
+                $data_nascimento = $row["data_nascimento"];
+                $informacoes = $row["informacoes"];
+            } else {
+                echo "Nenhum usuário encontrado.";
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -31,12 +31,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="perfil.css">
-    <title>Restaurante</title>
+    <title>Perfil <?php echo $nome; ?></title>
 </head>
 <body>
     <div id="menu">
         <a href="Index.php"><i class="fas fa-home"></i> Início</a>
-        <a href="perfil.php"><i class="fas fa-info-circle btnMenu"></i> Sobre</a>
+        <a href="perfil.php"><i class="fas fa-info-circle btnMenu"></i> Perfil</a>
         <a href="Pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
     </div>
 
@@ -44,13 +44,11 @@
         <div class="newPost">
             <div class="infoUser">
                 <div class="imgUser"></div>
-                <strong>TESTE</strong>
+                <strong><?php echo $nome; ?></strong>
             </div>
-            <div class="editarPerfil">
-                <a class="btnEditar" href="editar-perfil.html">
-                    <input type="button" value="Editar meu perfil" class="btn" />
-                </a>
+            <div class="amizade">
                 <input type="button" value="+ Adicionar amigo" class="btnAmizade" />
+                <p><?php echo $informacoes; ?></p>
             </div>
         </div>
     </div> 
