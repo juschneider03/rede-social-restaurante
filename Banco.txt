@@ -1,13 +1,6 @@
 CREATE DATABASE restaurante;
 USE restaurante;
 
-CREATE TABLE `amizades` (
- `id_amizades` int(11) NOT NULL AUTO_INCREMENT,
- `usuario_seguiu` int(11) NOT NULL,
- `usuario_seguindo` int(11) NOT NULL,
- PRIMARY KEY (`id_amizades`)
-);
-
 CREATE TABLE `usuario` (
  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
  `nome` varchar(250) NOT NULL,
@@ -18,6 +11,13 @@ CREATE TABLE `usuario` (
  PRIMARY KEY (`id_usuario`),
  UNIQUE KEY `email` (`email`),
  UNIQUE KEY `senha` (`senha`)
+);
+
+CREATE TABLE `amizades` (
+ `id_amizades` int(11) NOT NULL AUTO_INCREMENT,
+ `usuario_seguiu` int(11) NOT NULL,
+ `usuario_seguindo` int(11) NOT NULL,
+ PRIMARY KEY (`id_amizades`)
 );
 
 CREATE TABLE `postagens` (

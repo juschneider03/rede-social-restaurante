@@ -6,7 +6,6 @@
 
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['post_id'])) {
         $post_id = $_POST['post_id'];
-        $conn = new mysqli("localhost", "username", "password", "seu_banco_de_dados");
 
         // Verifique se o usuário já curtiu esta postagem
         $query = "SELECT * FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $user_id";

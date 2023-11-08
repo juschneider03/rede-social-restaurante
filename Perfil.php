@@ -47,7 +47,7 @@ $conn->close();
 </head>
 <body>
     <div id="menu">
-        <a href="Index.html"><i class="fas fa-home"></i> Início</a>
+        <a href="Index.php"><i class="fas fa-home"></i> Início</a>
         <a href="Perfil.php"><i class="fas fa-info-circle btnMenu"></i> Perfil</a>
         <a href="Pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
     </div>

@@ -176,6 +176,24 @@ div.newPost {
     border-radius: 50%;
     border: 0.2em solid #4c4c4c;
 }
+
+.btnAmizade {
+  background-color: #e2fa08;
+  color: #fff;
+  font-size: 14px;
+  border: none !important;
+  transition: all linear 160ms;
+  cursor: pointer;
+  margin: 0 !important;
+  border-radius:3px;
+  padding: 5px;
+}
+
+.btnAmizade:hover {
+  transform: scale(1.05);
+  background-color: #bac524;
+}
+
 .radio_new_btn::after {
     content: "";
     position: absolute;
