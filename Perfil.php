@@ -19,19 +19,11 @@ if (isset($_SESSION['id_usuario'])) {
             $email = $row["email"];
             $data_nascimento = $row["data_nascimento"];
             $informacoes = $row["informacoes"];
-        } else {
-            echo "Nenhum usuário encontrado.";
-        }
-    } else {
-        echo "Erro na consulta: " . $stmt->error;
-    }
-
+        } 
+    } 
     // Feche o statement
     $stmt->close();
-} else {
-    echo "Sessão não iniciada ou ID de usuário inválido.";
-}
-
+} else
 // Feche a conexão
 $conn->close();
 ?>
