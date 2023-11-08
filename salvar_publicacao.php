@@ -10,9 +10,9 @@
         $result = $conn->query($query);
     
         if ($result) {
-            echo 'success'; // Publicação salva com sucesso
+            echo 'success';
         } else {
-            echo 'error'; // Erro ao salvar a publicação
+            echo 'error'; 
         }
     }
     
