@@ -46,4 +46,5 @@ CREATE TABLE `curtidas` (
 );
 
 INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES ('', 'Professor Culinario', 'professor@gmail.com', 'professor123', '2000-04-04', 'Sou Professor e Gosto de comer, um churrasquinho então hmmmmmm');
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES (NULL, 'teste', 'teste@gmail.com', '123', '2000-01-01', 'testes testes');
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES ('', 'teste', 'teste@gmail.com', '123', '2000-01-01', 'testes testes');
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `data_nascimento`, `informacoes`) VALUES ('', 'Amigo', 'amigo@gmail.com', 'amigo', '1998-08-29', 'Testar Os Amigos');
