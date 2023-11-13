@@ -47,7 +47,14 @@
 div.newPost div.infoUser {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+div.newPost div.name {
+  display: flex;
+  align-items: row;
+  align-items: center;
 }
   
 div.newPost div.infoUser div.imgUser {
@@ -106,7 +113,7 @@ div.newPost {
 .btn {
     background-color: #8A2BE2;
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     border: none !important;
     transition: all linear 160ms;
@@ -123,15 +130,27 @@ div.newPost {
 }
 
 .btnAmizade {
-  background-color: #e2fa08;
+  background-color: #08defa;
   color: #fff;
-  font-size: 14px;
+  font-size: 15x;
   border: none !important;
   transition: all linear 160ms;
   cursor: pointer;
   margin: 0 !important;
   border-radius:3px;
   padding: 5px;
+}
+
+.perfilInfo {
+  padding: 7px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.info{
+  font-weight: bold;
 }
 
 .btnAmizade:hover {

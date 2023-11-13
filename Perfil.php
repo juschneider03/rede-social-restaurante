@@ -47,15 +47,22 @@ $conn->close();
     <div class="main">
         <div class="newPost">
             <div class="infoUser">
-                <div class="imgUser"></div>
-                <strong><?php echo $nome; ?></strong>
+                <div class="name">
+                    <div class="imgUser"></div>
+                    <strong><?php echo $nome; ?></strong>
+                </div>
+                <div class="comentarios">
+                    <strong>123 comentários</strong>
+                </div>
             </div>
             <div class="editarPerfil">
                 <a class="btnEditar" href="editar_perfil.php">
                     <input type="button" value="Editar meu perfil" class="btn" />
                 </a>
             </div>
+            
             <div class="perfilInfo">
+                <p class="info">Informações do usuário:</p>
                 <p>Email: <?php echo $email; ?></p>
                 <p>Data de Nascimento: <?php echo $data_nascimento; ?></p>
                 <p>Informações: <?php echo $informacoes; ?></p>
