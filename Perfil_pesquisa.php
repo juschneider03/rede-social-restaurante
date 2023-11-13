@@ -43,12 +43,22 @@
     <div class="main">
         <div class="newPost">
             <div class="infoUser">
-                <div class="imgUser"></div>
-                <strong><?php echo $nome; ?></strong>
+            <div class="name">
+                    <div class="imgUser"></div>
+                    <strong><?php echo $nome; ?></strong>
+                </div>
+                <div class="comentarios">
+                    <strong>123 comentários</strong>
+                </div>
             </div>
             <div class="amizade">
                 <input type="button" value="+ Adicionar amigo" class="btnAmizade" />
-                <p><?php echo $informacoes; ?></p>
+                <div class="perfilInfo">
+                    <p class="info">Informações do usuário:</p>
+                    <p>Email: <?php echo $email; ?></p>
+                    <p>Data de Nascimento: <?php echo $data_nascimento; ?></p>
+                    <p>Informações: <?php echo $informacoes; ?></p>
+                </div>
             </div>
         </div>
     </div> 
