@@ -19,7 +19,7 @@
         
         if (mysqli_stmt_execute($stmt)) {
             echo "Dados inseridos com sucesso!";
-            header("Location: Perfil.php");
+            header("Location: login.html");
         exit();
         } else {
             echo "Erro ao inserir dados: " . mysqli_error($conn);

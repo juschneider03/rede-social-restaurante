@@ -46,9 +46,9 @@ $conn->close();
 </head>
 <body>
     <div id="menu">
-        <a href="Index.php"><i class="fas fa-home"></i> Início</a>
-        <a href="Perfil.php"><i class="fas fa-info-circle btnMenu"></i> Perfil</a>
-        <a href="Pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
+        <a href="index.php"><i class="fas fa-home"></i> Início</a>
+        <a href="perfil.php"><i class="fas fa-info-circle btnMenu"></i> Perfil</a>
+        <a href="pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
     </div>
   
     <div class="main">
@@ -58,8 +58,8 @@ $conn->close();
                 <strong><?php echo $nome; ?></strong>
             </div>
 
-            <form action="Postagem.php" class="formPost" id="formPost">
-              <textarea name="textarea" placeholder="O que você comeu hoje?" id="textarea"></textarea>
+            <form action="salvar_publicacao.php" class="formPost" id="formPost">
+              <textarea name="textarea" placeholder="O que você comeu hoje?" id="textarea1"></textarea>
                 <div class="iconsAndButton">
                     <div class="icon">
                         <input style="display: none" type="file" accept="image/png" id="input-imagens" name="post_imagem"/>
@@ -74,5 +74,67 @@ $conn->close();
     </div> 
     <script src="./controller/FormPost.js"></script>
     <script src="./controller/ControleBotoesPost.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+    carregarPublicacoes();
+
+    $("#formPost").submit(function (e) {
+        e.preventDefault();
+        var comentario = $("#textarea1").val();  // Capturar o valor do textarea
+
+        $.ajax({
+            type: "POST",
+            url: "salvar_publicacao.php",
+            data: { textarea: comentario },  // Enviar o valor do textarea
+            success: function (response) {
+                if (response === "success") {
+                    // Limpar e recarregar as publicações
+                    $("#textarea").val("");
+                    carregarPublicacoes();
+                } else {
+                    alert("Erro ao salvar a publicação.");
+                }
+            },
+        });
+    });
+
+    function carregarPublicacoes() {
+        $.ajax({
+            type: "GET",
+            url: "recuperar_publicacoes.php",
+            dataType: "json",
+            success: function (data) {
+                exibirPublicacoes(data);
+            },
+        });
+    }
+
+    function exibirPublicacoes(publicacoes) {
+        $("#posts").empty();
+        publicacoes.forEach(function (post) {
+            $("#posts").append(`
+                <li class="post">
+                    <div class="infoUserPost">
+                        <div class="imgUserPost"></div>
+                        <div class="nameAndHour">
+                            <strong>${post.nome}</strong>
+                            <p>${new Date(post.data_post).toLocaleString()}</p>
+                        </div>
+                    </div>
+                    <p>${post.comentario}</p>
+                    <div class="actionBtnPost">
+                        <button type="button" class="filesPost like">
+                        <img src="./imagens/heart.svg" alt="Curtir">
+                            Curtir
+                        </button>
+                    </div>
+                </li>
+            `);
+        });
+    }
+});
+</script>
 </body>
 </html>

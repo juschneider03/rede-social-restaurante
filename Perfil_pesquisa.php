@@ -52,7 +52,10 @@
                 </div>
             </div>
             <div class="amizade">
-                <input type="button" value="+ Adicionar amigo" class="btnAmizade" />
+            <form action="adicionar_amigo.php" method="post">
+                <input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>">
+                <input type="submit" value="+ Adicionar amigo" class="btnAmizade" />
+            </form>
                 <div class="perfilInfo">
                     <p class="info">Informações do usuário:</p>
                     <p>Email: <?php echo $email; ?></p>
@@ -64,4 +67,4 @@
     </div> 
     <script type="module" src="/controller/FormPost.js"></script>
 </body>
-</html>
+</html> 

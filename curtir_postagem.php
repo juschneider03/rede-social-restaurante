@@ -1,24 +1,32 @@
 <?php
     
     include("conexao.php");
-    
-    $user_id = 1; // Substitua pelo ID do usuário logado
+    session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['post_id'])) {
-        $post_id = $_POST['post_id'];
+    if (isset($_SESSION['id_usuario'])) {
+        $id_usuario = $_SESSION['id_usuario'];
 
-        // Verifique se o usuário já curtiu esta postagem
-        $query = "SELECT * FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $user_id";
-        $result = $conn->query($query);
+        // Consulta para obter os dados do usuário
+        $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id_usuario);
+        
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['post_id'])) {
+            $post_id = $_POST['post_id'];
 
-        if ($result->num_rows === 0) {
-            $insert_query = "INSERT INTO curtidas (id_postagem, id_usuario) VALUES ($post_id, $user_id)";
-            $conn->query($insert_query);
-        } else {
-            $delete_query = "DELETE FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $user_id";
-            $conn->query($delete_query);
+            // Verifique se o usuário já curtiu esta postagem
+            $query = "SELECT * FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $id_usuario";
+            $result = $conn->query($query);
+
+            if ($result->num_rows === 0) {
+                $insert_query = "INSERT INTO curtidas (id_postagem, id_usuario) VALUES ($post_id, $id_usuario)";
+                $conn->query($insert_query);
+            } else {
+                $delete_query = "DELETE FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $id_usuario";
+                $conn->query($delete_query);
+            }
+
+            header("Location: {$_SERVER['HTTP_REFERER']}");
         }
-
-        header("Location: {$_SERVER['HTTP_REFERER']}");
-}
+    }
 ?>

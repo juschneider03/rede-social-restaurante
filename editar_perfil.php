@@ -68,7 +68,7 @@ $conn->close();
     <div id="menu">
         <a href="index.php"><i class="fas fa-home"></i> Início</a>
         <a href="perfil.php"><i class="fas fa-info-circle btnMenu"></i> Perfil</a>
-        <a href="Pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
+        <a href="pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
     </div>
 
     <div class="main">

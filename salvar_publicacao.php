@@ -1,20 +1,27 @@
 <?php
-    include("conexao.php");
-    
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $texto = $_POST['texto']; // Recupere o texto da publicação do formulário
-    
-        // Você também pode adicionar lógica para obter o nome do autor, data e outros campos necessários
-    
-        $query = "INSERT INTO publicacoes (texto) VALUES ('$texto')";
-        $result = $conn->query($query);
-    
-        if ($result) {
-            echo 'success';
-        } else {
-            echo 'error'; 
-        }
+include("conexao.php");
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_usuario = $_SESSION['id_usuario'];
+    $comentario = $_POST['textarea']; 
+
+    echo $comentario;
+
+    $query = "INSERT INTO postagens (usuario, comentario, data_post) VALUES (?, ?, NOW())";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("is", $id_usuario, $comentario);
+
+    if ($stmt->execute()) {
+        echo 'success';
+    } else {
+        echo 'error: ';
     }
-    
-    $conn->close();
+
+    $stmt->close();
+} else {
+    echo 'error: Método inválido';
+}
+
+$conn->close();
 ?>

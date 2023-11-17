@@ -28,6 +28,7 @@ CREATE TABLE `postagens` (
  `id_post` int(11) NOT NULL AUTO_INCREMENT,
  `usuario` int(11) NOT NULL,
  `comentario` varchar(500) NOT NULL,
+ `data_post` datetime NOT NULL,
  `foto` blob NOT NULL,
  PRIMARY KEY (`id_post`),
  KEY `usuario` (`usuario`),

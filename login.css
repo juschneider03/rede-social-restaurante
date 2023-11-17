@@ -92,15 +92,15 @@ body{
 .btn {
     background-color: #8A2BE2;
     color: #fff;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 300;
     border: none !important;
     transition: all linear 160ms;
     cursor: pointer;
     margin: 0  !important;
     border-radius: 13px;
-    width: 150px; 
-    height: 35px;
+    width: 130px; 
+    height: 30px;
     margin-bottom: 200px;
 }
 
