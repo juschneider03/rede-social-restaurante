@@ -49,6 +49,8 @@ $conn->close();
         <a href="index.php"><i class="fas fa-home"></i> Início</a>
         <a href="perfil.php"><i class="fas fa-info-circle btnMenu"></i> Perfil</a>
         <a href="pesquisa.html"><i class="fas fa-search btnMenu"></i> Pesquisar</a>
+        <a href="login.html"><i class="fas fa-singout btnMenu"></i> Logout</a>
+
     </div>
   
     <div class="main">
@@ -82,7 +84,7 @@ $conn->close();
 
     $("#formPost").submit(function (e) {
         e.preventDefault();
-        var comentario = $("#textarea1").val();  // Capturar o valor do textarea
+        var comentario = $("#textarea1").val();
 
         $.ajax({
             type: "POST",
@@ -112,28 +114,47 @@ $conn->close();
     }
 
     function exibirPublicacoes(publicacoes) {
-        $("#posts").empty();
-        publicacoes.forEach(function (post) {
-            $("#posts").append(`
-                <li class="post">
-                    <div class="infoUserPost">
-                        <div class="imgUserPost"></div>
-                        <div class="nameAndHour">
-                            <strong>${post.nome}</strong>
-                            <p>${new Date(post.data_post).toLocaleString()}</p>
-                        </div>
+    $("#posts").empty();
+    publicacoes.forEach(function (post) {
+        $("#posts").append(`
+            <li class="post">
+                <div class="infoUserPost">
+                    <div class="imgUserPost"></div>
+                    <div class="nameAndHour">
+                        <strong>${post.nome}</strong>
+                        <p>${new Date(post.data_post).toLocaleString()}</p>
                     </div>
-                    <p>${post.comentario}</p>
-                    <div class="actionBtnPost">
-                        <button type="button" class="filesPost like">
+                </div>
+                <p>${post.comentario}</p>
+                <div class="actionBtnPost">
+                    <button type="button" class="filesPost like" data-post-id="${post.id}">
                         <img src="./imagens/heart.svg" alt="Curtir">
-                            Curtir
-                        </button>
-                    </div>
-                </li>
-            `);
+                        Curtir
+                    </button>
+                </div>
+            </li>
+        `);
+    });
+
+    $(".like").click(function () {
+        var postId = $(this).data("post-id");
+
+        $.ajax({
+            type: "POST",
+            url: "curtir_postagem.php",
+            data: { post_id: postId },
+            success: function (response) {
+                if (response === "success") {
+                    // Recarregar as publicações após curtir/descurtir
+                    carregarPublicacoes();
+                } else {
+                    alert("Erro ao curtir a publicação.");
+                }
+            },
         });
-    }
+    });
+}
+
 });
 </script>
 </body>

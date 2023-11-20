@@ -1,32 +1,34 @@
 <?php
-    
-    include("conexao.php");
-    session_start();
+include("conexao.php");
+session_start();
 
-    if (isset($_SESSION['id_usuario'])) {
-        $id_usuario = $_SESSION['id_usuario'];
+if (isset($_SESSION['id_usuario']) && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['post_id'])) {
+    $id_usuario = $_SESSION['id_usuario'];
+    $post_id = $_POST['post_id'];
 
-        // Consulta para obter os dados do usuário
-        $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id_usuario);
-        
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['post_id'])) {
-            $post_id = $_POST['post_id'];
+    // Verifique se o usuário já curtiu esta postagem
+    $query = "SELECT * FROM curtidas WHERE post = ? AND usuario = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $post_id, $id_usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-            // Verifique se o usuário já curtiu esta postagem
-            $query = "SELECT * FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $id_usuario";
-            $result = $conn->query($query);
-
-            if ($result->num_rows === 0) {
-                $insert_query = "INSERT INTO curtidas (id_postagem, id_usuario) VALUES ($post_id, $id_usuario)";
-                $conn->query($insert_query);
-            } else {
-                $delete_query = "DELETE FROM curtidas WHERE id_postagem = $post_id AND id_usuario = $id_usuario";
-                $conn->query($delete_query);
-            }
-
-            header("Location: {$_SERVER['HTTP_REFERER']}");
-        }
+    if ($result->num_rows === 0) {
+        // Se o usuário não curtiu, insira a curtida
+        $insert_query = "INSERT INTO curtidas (post, usuario) VALUES (?, ?)";
+        $stmt = $conn->prepare($insert_query);
+        $stmt->bind_param("ii", $post_id, $id_usuario);
+        $stmt->execute();
+        echo "success"; // Envie uma resposta de sucesso para o JavaScript
+    } else {
+        // Se o usuário já curtiu, remova a curtida
+        $delete_query = "DELETE FROM curtidas WHERE post = ? AND usuario = ?";
+        $stmt = $conn->prepare($delete_query);
+        $stmt->bind_param("ii", $post_id, $id_usuario);
+        $stmt->execute();
+        echo "success"; // Envie uma resposta de sucesso para o JavaScript
     }
+} else {
+    echo "error"; // Envie uma resposta de erro para o JavaScript
+}
 ?>
