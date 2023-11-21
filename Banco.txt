@@ -18,8 +18,7 @@ CREATE TABLE `amizades` (
  `usuario_seguiu` int(11) NOT NULL,
  `usuario_seguindo` int(11) NOT NULL,
  PRIMARY KEY (`id_amizades`),
- UNIQUE KEY `usuario_seguiu` (`usuario_seguiu`),
- UNIQUE KEY `usuario_seguindo` (`usuario_seguindo`),
+ INDEX `idx_amizades` (`usuario_seguiu`, `usuario_seguindo`),
  CONSTRAINT `Fk_usu_seguindo` FOREIGN KEY (`usuario_seguindo`) REFERENCES `usuario` (`id_usuario`),
  CONSTRAINT `Fk_usu_seguiu` FOREIGN KEY (`usuario_seguiu`) REFERENCES `usuario` (`id_usuario`)
 );

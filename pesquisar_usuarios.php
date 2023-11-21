@@ -1,11 +1,10 @@
 <?php
     include("conexao.php");
-    session_start(); // Inicie a sessão
+    session_start();
 
 if (isset($_SESSION['id_usuario'])) {
     $id_usuario = $_SESSION['id_usuario'];
 
-    // Consulta para obter os dados do usuário
     $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_usuario);

@@ -14,7 +14,6 @@ if ($stmt->num_rows == 1) {
     $stmt->bind_result($id_usuario);
     $stmt->fetch();
 
-    // Iniciar uma sessão e armazenar o ID do usuário nela
     session_start();
     $_SESSION['id_usuario'] = $id_usuario;
 
