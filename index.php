@@ -113,6 +113,7 @@ $conn->close();
     }
 
     function displayFileName(input) {
+<<<<<<< HEAD
         var fileNameDisplay = document.getElementById('file-name-display');
         var fileName = input.files[0].name;
         fileNameDisplay.innerHTML = fileName;
@@ -136,6 +137,15 @@ $conn->close();
             }
         });
     });
+=======
+    var fileNameDisplay = document.getElementById('file-name-display');
+    
+    var fileName = input.files[0].name;
+
+    fileNameDisplay.innerHTML = fileName;
+  }
+
+>>>>>>> a09e8945abf8b880b2106d63e6d981dd0a62d597
     function exibirPublicacoes(publicacoes) {
     $("#posts").empty();
     publicacoes.forEach(function (post) {
@@ -171,7 +181,11 @@ $conn->close();
             url: "curtir_postagem.php",
             data: { post_id: postId },
             success: function (response) {
+<<<<<<< HEAD
                 if (response === "like" || response === "unlike") {
+=======
+                if (response === "success") {
+>>>>>>> a09e8945abf8b880b2106d63e6d981dd0a62d597
                     carregarPublicacoes();
                 } else {
                     alert("Erro ao curtir a publicação.");
@@ -182,9 +196,13 @@ $conn->close();
             }
         });
     });
+<<<<<<< HEAD
     });
 
 
+=======
+
+>>>>>>> a09e8945abf8b880b2106d63e6d981dd0a62d597
     document.getElementById("button-imagens").addEventListener("click", function (){
     document.getElementById("foto").click();
     });
