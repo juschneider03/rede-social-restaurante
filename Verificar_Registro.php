@@ -9,9 +9,6 @@
         $informacoes = $_POST["informacoes"];
         $data_nascimento = $_POST["data_nascimento"];
     
-        // Faça a validação dos dados, como checar se os campos são obrigatórios, etc.
-        
-        // Insira os dados no banco de dados
         $query = "INSERT INTO usuario (nome, email, senha, informacoes, data_nascimento) VALUES (?, ?, ?, ?, ?)";
         
         $stmt = mysqli_prepare($conn, $query);

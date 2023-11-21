@@ -5,12 +5,10 @@ session_start();
 if (isset($_SESSION['id_usuario'])) {
     $id_usuario = $_SESSION['id_usuario'];
 
-    // Consulta para obter os dados do usuário
     $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_usuario);
     
-    // Execute a consulta
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
@@ -38,12 +36,10 @@ if (isset($_SESSION['id_usuario'])) {
     $stmt_postagens = $conn->prepare($postagens_sql);
     $stmt_postagens->bind_param("i", $id_usuario);
 
-    // Execute a consulta de postagens
     if ($stmt_postagens->execute()) {
         $result_postagens = $stmt_postagens->get_result();
         $postagens = array();
 
-        // Obtenha todas as postagens em um array
         while ($row_postagens = $result_postagens->fetch_assoc()) {
             $postagens[] = $row_postagens;
         }
@@ -97,7 +93,6 @@ if (isset($_SESSION['id_usuario'])) {
             </div>
 
             <?php
-            // Exibir as postagens do usuário
             foreach ($postagens as $postagem) {
                 echo "<li class='post'>";
                 echo "<div class='infoUserPost'>";

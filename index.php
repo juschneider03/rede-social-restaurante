@@ -1,11 +1,10 @@
 <?php
     include("conexao.php");
-    session_start(); // Inicie a sessão
+    session_start(); 
 
 if (isset($_SESSION['id_usuario'])) {
     $id_usuario = $_SESSION['id_usuario'];
 
-    // Consulta para obter os dados do usuário
     $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_usuario);
@@ -24,13 +23,11 @@ if (isset($_SESSION['id_usuario'])) {
         echo "Erro na consulta: " . $stmt->error;
     }
 
-    // Feche o statement
     $stmt->close();
 } else {
     echo "Sessão não iniciada ou ID de usuário inválido.";
 }
 
-// Feche a conexão
 $conn->close();
 ?>
 
@@ -60,13 +57,14 @@ $conn->close();
                 <strong><?php echo $nome; ?></strong>
             </div>
 
-            <form action="salvar_publicacao.php" class="formPost" id="formPost">
-              <textarea name="textarea" placeholder="O que você comeu hoje?" id="textarea1"></textarea>
+            <form action="salvar_publicacao.php" class="formPost" enctype="multipart/form-data" id="formPost">
+                <textarea name="textarea" placeholder="O que você comeu hoje?" id="textarea1"></textarea>
                 <div class="iconsAndButton">
                     <div class="icon">
-                        <input style="display: none" type="file" accept="image/png" id="input-imagens" name="post_imagem"/>
-                        <button id="button-imagens" class="btnFileForm"><img src="./imagens/img.svg" alt="Adicionar uma imagem"></button>
+                        <input style="display: none" type="file" accept="image/jpeg,image/png" id="foto" name="foto" onchange="displayFileName(this)"/>
+                        <button id="button-imagens" class="btnFileForm" type="button"><img src="./imagens/img.svg" alt="Adicionar uma imagem"></button>
                     </div>
+                    <div id="file-name-display"></div>
                     <button type="submit" class="btnSubmitForm">Publicar</button>
                 </div>
             </form>
@@ -86,18 +84,19 @@ $conn->close();
         e.preventDefault();
         var comentario = $("#textarea1").val();
 
+        var formData = new FormData(); 
+        formData.append('textarea', comentario); 
+        formData.append('foto', $('#foto')[0].files[0]); 
+
         $.ajax({
             type: "POST",
             url: "salvar_publicacao.php",
-            data: { textarea: comentario },  // Enviar o valor do textarea
+            data: formData,
+            contentType: false,
+            processData: false,
             success: function (response) {
-                if (response === "success") {
-                    // Limpar e recarregar as publicações
-                    $("#textarea").val("");
-                    carregarPublicacoes();
-                } else {
-                    alert("Erro ao salvar a publicação.");
-                }
+                $("#textarea1").val(""); 
+                carregarPublicacoes();
             },
         });
     });
@@ -113,6 +112,14 @@ $conn->close();
         });
     }
 
+    function displayFileName(input) {
+    var fileNameDisplay = document.getElementById('file-name-display');
+    
+    var fileName = input.files[0].name;
+
+    fileNameDisplay.innerHTML = fileName;
+  }
+
     function exibirPublicacoes(publicacoes) {
     $("#posts").empty();
     publicacoes.forEach(function (post) {
@@ -126,6 +133,7 @@ $conn->close();
                     </div>
                 </div>
                 <p>${post.comentario}</p>
+                ${post.foto ? `<img src="data:image/jpeg;base64, ${post.foto}" />` : ''}
                 <div class="actionBtnPost">
                     <button type="button" class="filesPost like" data-post-id="${post.id}">
                         <img src="./imagens/heart.svg" alt="Curtir">
@@ -145,7 +153,6 @@ $conn->close();
             data: { post_id: postId },
             success: function (response) {
                 if (response === "success") {
-                    // Recarregar as publicações após curtir/descurtir
                     carregarPublicacoes();
                 } else {
                     alert("Erro ao curtir a publicação.");
@@ -153,9 +160,11 @@ $conn->close();
             },
         });
     });
-}
 
-});
+    document.getElementById("button-imagens").addEventListener("click", function (){
+    document.getElementById("foto").click();
+    });
+}});
 </script>
 </body>
 </html>

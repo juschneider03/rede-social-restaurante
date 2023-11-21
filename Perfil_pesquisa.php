@@ -4,12 +4,10 @@
     if (isset($_GET['id'])) {
         $id_usuario = $_GET['id'];
     
-        // Consulta para obter os dados do usuário
         $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id_usuario);
     
-        // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             if ($result->num_rows > 0) {
@@ -40,12 +38,10 @@
         $stmt_postagens = $conn->prepare($postagens_sql);
         $stmt_postagens->bind_param("i", $id_usuario);
     
-        // Execute a consulta de postagens
         if ($stmt_postagens->execute()) {
             $result_postagens = $stmt_postagens->get_result();
             $postagens = array();
     
-            // Obtenha todas as postagens em um array
             while ($row_postagens = $result_postagens->fetch_assoc()) {
                 $postagens[] = $row_postagens;
             }

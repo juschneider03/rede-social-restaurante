@@ -147,7 +147,7 @@ ul.posts li.post {
 
 ul.posts {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 ul.posts li.post div.infoUserPost {

@@ -11,7 +11,6 @@ if (isset($_SESSION['id_usuario'])) {
         $data_nascimento = $_POST['datanascimento'];
         $informacoes = $_POST['mensagem'];
 
-        // Atualize as informações do usuário no banco de dados
         $sql = "UPDATE usuario SET nome=?, email=?, senha=?, data_nascimento=?, informacoes=? WHERE id_usuario=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssssi", $nome, $email, $senha, $data_nascimento, $informacoes, $id_usuario);
@@ -24,13 +23,11 @@ if (isset($_SESSION['id_usuario'])) {
         }
     }
 
-    // Consulta para obter os dados do usuário
     $id_usuario = $_SESSION['id_usuario'];
     $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_usuario);
 
-    // Execute a consulta
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
@@ -47,7 +44,6 @@ if (isset($_SESSION['id_usuario'])) {
         echo "Erro na consulta: " . $stmt->error;
     }
 
-    // Feche o statement
     $stmt->close();
 } else {
     echo "Sessão não iniciada ou ID de usuário inválido.";
